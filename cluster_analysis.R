@@ -4,7 +4,7 @@ library(cluster)
 #import 
 dat <- read.table("http://data.princeton.edu/wws509/datasets/copen.dat", header=TRUE)
 
-#create dummy variables for categorical data
+#create dummy variables for categorical data - needs improvement
 matrix <- model.matrix(~ 0+ ., data = dat)
 
 #scale
