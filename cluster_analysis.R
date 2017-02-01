@@ -1,5 +1,6 @@
 #Basic cluster analysis of housing in Copenhagen
 library(cluster)
+library(fpc)
 
 #import 
 dat <- read.table("http://data.princeton.edu/wws509/datasets/copen.dat", header=TRUE)
@@ -34,3 +35,9 @@ assigned <- cbind(dat,clusterdat$fit.cluster)
 
 #visualize
 clusplot(dat2, fit$cluster)
+
+fit2 <- kmeans(dat2, 3)
+
+# comparing cluster models
+d <-  dist(fit$centers)
+cluster.stats(d, fit$cluster, fit2$cluster)
